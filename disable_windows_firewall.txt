@@ -1,6 +1,6 @@
 REM Author: Guereak
 REM /!\ ETHICAL USE ONLY
-REM Python HTTP server exploit
+REM Disable your windows defender firewall
 DELAY 300
 GUI r
 DELAY 100
